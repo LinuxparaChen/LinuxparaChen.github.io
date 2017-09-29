@@ -4,7 +4,7 @@ author: "LinuxparaChen"
 description: "这是一个私人博客，记录平时的一些技术积累。"
 keywords: "C, C++, Android, OpenCV, OpenGL-ES"
 #biography: "I am a Professor of Software Engineering at the <a href='http://www.fe.up.pt'>Faculty of Engineering</a>, University of Porto and Senior Researcher at <a href='https://www.inesctec.pt'>INESC TEC</a>. Here you can find my <a href='/assets/thesis.pdf'>PhD Thesis</a> and my <a href='/assets/cv.pdf'>Résumé</a>."
-colophon: "© 博客的主题借鉴Marat，原著作者：John Coene<br>原著主题链接：https://github.com/mattvh/jekyllthemes/<br>Modify by LinuxparaChen.<br>"
+colophon: "© 主题借鉴Marat 原著作者：John Coene. <a href='https://github.com/mattvh/jekyllthemes/'>原著主题.</a><br>Modify by LinuxparaChen.<br>"
 
 baseurl: ""
 url: "http://LinuxparaChen.github.io"
