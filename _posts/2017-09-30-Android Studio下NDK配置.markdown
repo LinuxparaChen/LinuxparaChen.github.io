@@ -8,7 +8,7 @@ categories: NDK/JNI
 ---
 
 1. 下载CMake，LLDB，NDK（需要翻墙，梯子自备）<br>
-![CMake，LLDB，NDK下载](../assets/AS配置NDK-1.png)
+![CMake，LLDB，NDK下载](https://github.com/LinuxparaChen/LinuxparaChen.github.io/blob/master/assets/AS%E9%85%8D%E7%BD%AENDK-1.png)
 2. 配置SDK，JDK，NDK路径，如下图<br>
 ![配置SDK，JDK，NDK路径](../assets/AS配置NDK-2.png)
 3. 新建工程，步骤和普通工程一样，不一样的地方下图会标明<br>
