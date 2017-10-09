@@ -11,7 +11,7 @@
 
 **以下步骤部分需要科学上网，请自备梯子.**
 
->###第一部分
+> ###第一部分
 >1. 在Github上新建一个仓库，命名为：你的账号.github.io
 >	
 >2.	进入你要存放工程的目录，从我的仓库克隆一份源码：`git clone git@github.com:LinuxparaChen/LinuxparaChen.github.io.git`
@@ -25,7 +25,7 @@
 
 -
 
->###第二部分（如果不需要在本地预览的可以忽略）
+> ###第二部分（如果不需要在本地预览的可以忽略）
 >1. 安装Homebrew(如果没有).更新brew仓库 `brew update`.
 >
 >2. 安装ruby（Mac默认版本比较2.0，需要版本2.1及以上.）查看brew仓库中ruby的版本：`brew search ruby`.
