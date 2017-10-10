@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android Studio下NDK配置
-date: 2017-10-09 09:57
+date: 2017-10-09 16:54
 comments: true
 external-url:
 categories: NDK/JNI
@@ -18,3 +18,32 @@ categories: NDK/JNI
 		  勾选Runtime Type Information Support(-frtti)/支持运行时类型信息（多态类型转换）<br>
 	![新建工程步骤二](../assets/AS-config-NDK-4.png)<br>
 4. 一个支持C/C++的工程就完成了。
+5. jniLibs目录设置
+
+```
+android {
+    ...
+    defaultConfig {
+        ...
+        externalNativeBuild {
+            cmake {
+            	//支持运行时类型信息和C++异常信息
+                cppFlags "-frtti -fexceptions"
+            }
+        }
+
+    }
+    ...
+    //设置cmake文件路径
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    //设置.so、libs路径
+    sourceSets.main {
+        jniLibs.srcDirs = ['libs']
+        jni.srcDirs = []
+    }
+}
+```

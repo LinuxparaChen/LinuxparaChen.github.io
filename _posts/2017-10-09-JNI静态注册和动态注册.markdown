@@ -1,0 +1,77 @@
+---
+layout: post
+title: JNI静态注册和动态注册
+date: 2017-10-09 09:57
+comments: true
+external-url:
+categories: NDK/JNI
+---
+
+### 1.静态注册流程
+	
+ 1. 新建java类NativeUtil，增加native方法printCString.
+ 
+	```
+	public class NativeUtil {
+		//加载生成的库文件
+	    static {
+	        System.loadLibrary("native-util");
+	    }
+	    public native void printCString();
+	}
+	```
+
+ 2. 打开Android Studio视图下的Terminal(终端)，输入以下命令
+ 	 
+ 	 ```
+ 	 //进入java目录
+ 	 localhost:NDKDemo linuxpara$ cd app/src/main/java
+ 	 //生成头文件
+	 localhost:java linuxpara$ javah -o NativeUtil.h com.linuxpara.ndkdemo.NativeUtil
+	 localhost:java linuxpara$ 
+
+ 	 ```
+ 	 javah命令主要参数解释：<br>
+ 	 -jni(默认)生成jni头文件<br>
+ 	 -o `<file>` 输出头文件名(不能和-d一起使用)<br>
+ 	 -d `<dir>` 输出目录
+ 	 
+ 3. 将生成的NativeUtil.h文件移动到cpp目录下，在cpp目录下新建一个NativeUtil.cpp文件实现头文件中printCString方法
+ 
+ ```
+ #include "NativeUtil.h"
+ #include <android/log.h>
+
+ #define TAG "JNI"
+ #define LOGI(msg) __android_log_print(ANDROID_LOG_INFO,TAG,msg)
+
+ JNIEXPORT void JNICALL Java_com_linuxpara_ndkstudy_NativeUtil_printCString
+  (JNIEnv *env, jobject jobj){
+     char * print_string = "c print string";
+     LOGI(print_string);
+ }
+ ```
+
+ 4. 在CMakeLists.txt中配置NativeUtil.cpp
+ 
+ ```
+ //增加c/c++库，可包含多个文件直接在cpp文件后追加就可以
+ add_library( native-util
+             	 SHARED
+             	 src/main/cpp/NativeUtil.cpp )
+             	 
+ //链接生成库
+ target_link_libraries( native-lib native-util
+       					   ${log-lib} )
+ ```
+ 
+ 5. 在需要的地方调用即可
+ 
+以上步骤便是静态注册。
+
+### 2.动态注册流程
+
+ 1. System.loadLibrary("native-util")会首先调用`JNI_OnLoad`(jni.h中)。我们重写`JNI_OnLoad`方法
+ 
+ 
+ 2. 
