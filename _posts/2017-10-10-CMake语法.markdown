@@ -1,0 +1,33 @@
+---
+layout: post
+title: CMake语法
+date: 2017-10-10 14:20
+comments: true
+external-url:
+categories: NDK/JNI
+---
+
+>1. \# CMake 最低版本号要求  
+cmake\_minimum\_required (VERSION 2.8)
+
+>2. \# 项目信息  
+project (Demo1)
+
+>3. \# 指定生成目标，可以指定多个文件使用空格隔开  
+add_executable(Demo main.c)  
+add_executable(Demo main.c xxx.c)
+
+>4. \# 查找目录下的所有源文件  
+\# 并将名称保存到 DIR\_SRCS 变量  
+aux\_source\_directory(xxx/yyy DIR\_SRCS)  
+\# 指定生成目标  
+add_executable(Demo ${DIR\_SRCS})
+
+>5. \# 添加 math 子目录  
+add\_subdirectory(math)
+
+>6. \# 生成链接库  
+add\_library (MathFunctions ${DIR\_LIB\_SRCS})
+
+>7. \# 添加链接库  
+target\_link\_libraries(Demo MathFunctions)
