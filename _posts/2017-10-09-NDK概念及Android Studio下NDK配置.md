@@ -1,12 +1,23 @@
 ---
 layout: post
-title: Android Studio下NDK配置
+title: NDK概念及Android Studio下NDK配置
 date: 2017-10-09 16:54
 comments: true
 external-url:
 categories: NDK/JNI
 ---
+#### 1.什么是NDK
+Native Development Kit 本地开发工具包
+#### 2.什么是JNI
+Java Native Interface JNI是java和C/C++互相调用的一套规范  
+NDK是基于JNI一套工具库
+#### 3.为什么使用NDK
+1. 性能／效率
+2. 安全
+3. 便于移植
+4. C/C++一些优秀开源库可以直接供java使用
 
+#### 4.NDK配置
 1. 下载CMake，LLDB，NDK（需要翻墙，梯子自备）<br>
 ![](https://github.com/LinuxparaChen/LinuxparaChen.github.io/raw/master/assets/AS-config-NDK-1.png)
 2. 配置SDK，JDK，NDK路径，如下图<br>
